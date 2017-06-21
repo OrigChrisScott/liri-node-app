@@ -1,0 +1,31 @@
+{
+  "name": "liri-node-app",
+  "version": "1.0.0",
+  "description": "Language Interpretation and Recognition Interface",
+  "main": "keys.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OrigChrisScott/liri-node-app.git"
+  },
+  "keywords": [
+    "Twitter",
+    "Spotify",
+    "OMDB",
+    "APIs",
+    "LIRI"
+  ],
+  "author": "Chris Scott",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OrigChrisScott/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/OrigChrisScott/liri-node-app#readme",
+  "dependencies": {
+    "twitter": "^1.7.1",
+    "node-spotify-api": "^1.0.5",
+    "request": "^2.81.0"
+  }
+}
