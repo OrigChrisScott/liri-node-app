@@ -56,8 +56,8 @@ function spotifyCall(songString) {
 	}
 
 	// *** BUG HANDLING - Need to write:
-	// How to search for both track and artist at once (Node package limitation? API limitation?)
-	// Multi-dimensional searches giving unpredictable results
+	// How to search for both track and artist at once (Node package limitation? API limitation?).
+	// Multi-dimensional searches giving unpredictable results.
 	var params = {type: 'track', query: songString};
 
 	// API call.  Error first, then pull object properties
@@ -65,9 +65,10 @@ function spotifyCall(songString) {
 		if (error) {
 			return console.log("Something went wrong with spotifyCall function. Error: " + error);
 		} else {
-			
 			// *** BUG HANDLING - Need to write:
-			// provisions for multiple matching songs, multiple artists, missing preview url
+			// Provisions for multiple matching songs, multiple artists.
+			// Use inquirer npm package to display options to user and allow user to select
+			// correct song from list of API call results.
 			console.log("\nArtist(s): " + data.tracks.items[0].artists[0].name);
 			console.log("Title: " + data.tracks.items[0].name);
 			// Check to see if "preview_url" property exists
@@ -77,7 +78,6 @@ function spotifyCall(songString) {
 				console.log("Preview URL:\tnone provided");
 			}
 			console.log("Album: " + data.tracks.items[0].album.name + "\n");
-		
 		}
 	});
 }
@@ -105,12 +105,12 @@ function omdbCall(movie) {
 			// Output information
 			console.log("\nTitle: " + contents.Title);
 			console.log("Year: " + contents.Year);
+			console.log("Rotten Tomatoes Score: " + contents.Ratings[1].Value + "\n");
 			console.log("IMDB Rating: " + contents.Rated);
 			console.log("Country: " + contents.Country);
 			console.log("Language: " + contents.Language);
 			console.log("Plot: " + contents.Plot);
 			console.log("Actors: " + contents.Actors);
-			console.log("Rotten Tomatoes Score: " + contents.Ratings[1].Value + "\n");
 		}
 	});
 }
@@ -125,8 +125,7 @@ function doWhatItSays() {
 			console.log("Something went wrong, " + fileName + " not read.");
 		} else {
 			// Create array from data content string in [fileName]
-			var dataArr = data.split(',');
-			
+			var dataArr = data.split(',');			
 			// Check to see if there is(are) one argument or two in [fileName]
 			if (dataArr.length < 2) {
 				// Remove newline character (\n) at end of last argument
@@ -158,6 +157,8 @@ function doWhatItSays() {
 
 }
 
+// Takes action argument passed from command line in process.argv[2]
+// Run appropriate function
 switch(action) {
 	case 'my-tweets':
 		twitterCall();
